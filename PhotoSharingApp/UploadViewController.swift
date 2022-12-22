@@ -17,6 +17,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var isWorking = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,12 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         imageView.addGestureRecognizer(gestureRecognizer)
+        activityIndicator.isHidden = true
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        saveButton.isEnabled = false
     }
     
     @objc func chooseImage() {
@@ -47,8 +53,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     @IBAction func uploadButtonClicked(_ sender: Any) {
-    
         
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
             
             let storage = Storage.storage()
             let storageReference = storage.reference()
@@ -85,6 +92,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                             if error != nil {
                                                 self.errorMessage(title: "Hata", message: error?.localizedDescription ?? "Hata aldınız.")
                                             } else {
+                                                
+                                                self.activityIndicator.isHidden = true
+                                                self.activityIndicator.stopAnimating()
                                                 
                                                 let alert = UIAlertController(title: "Successfully", message: "Transaction successfull", preferredStyle: .alert)
                                                 let okButton = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
