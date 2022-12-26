@@ -44,11 +44,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if snapshot?.isEmpty != true && snapshot != nil {
                     
                     self.postArray.removeAll(keepingCapacity: false)
-                    /*
-                    self.emailArray.removeAll(keepingCapacity: false)
-                    self.imageArray.removeAll(keepingCapacity: false)
-                    self.commentArray.removeAll(keepingCapacity: false)
-                     */
+                    
+                    
                     
                     for document in snapshot!.documents {
                         
@@ -58,8 +55,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 if let email = document.get("email") as? String {
                                     
-                                    let post = Post(email: email, comment: comment, imageUrl: imageUrl)
-                                    self.postArray.append(post)
+                                   
+                                        let post = Post(email: email, comment: comment, imageUrl: imageUrl)
+                                        self.postArray.append(post)
+                                  
                                     
                                 }
                                 
@@ -86,5 +85,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.postImageView.sd_setImage(with: URL(string: self.postArray[indexPath.row].imageUrl))
         return cell
     }
+    
+  
 
 }
