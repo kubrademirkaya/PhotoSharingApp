@@ -31,6 +31,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         firebaseGetData()
     }
     
+    
     func firebaseGetData() {
         let firestoreDatabase = Firestore.firestore()
       
@@ -45,8 +46,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     self.postArray.removeAll(keepingCapacity: false)
                     
-                    
-                    
                     for document in snapshot!.documents {
                         
                         if let imageUrl = document.get("imageurl") as? String {
@@ -55,10 +54,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 if let email = document.get("email") as? String {
                                     
-                                   
-                                        let post = Post(email: email, comment: comment, imageUrl: imageUrl)
-                                        self.postArray.append(post)
-                                  
+                                    if let date = (document.get("date") as? Timestamp)?.dateValue() as? Date {
+                                        
+                                         let post = Post(email: email, comment: comment, imageUrl: imageUrl, date: date)
+                                             self.postArray.append(post)
+                                        
+                                    
+                                       
+                                    }
                                     
                                 }
                                 
@@ -79,10 +82,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedCell
         cell.userEmailLabel.text = postArray[indexPath.row].email
         cell.commentLabel.text = postArray[indexPath.row].comment
         cell.postImageView.sd_setImage(with: URL(string: self.postArray[indexPath.row].imageUrl))
+        cell.dateLabel.text = postArray[indexPath.row].dateString
         return cell
     }
     

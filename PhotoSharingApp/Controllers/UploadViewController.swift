@@ -17,7 +17,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
-    var isWorking = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        saveButton.isEnabled = false
+        self.toogleUploadButton()
     }
     
     @objc func chooseImage() {
@@ -41,16 +40,17 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         pickerController.delegate = self
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-            imageView.image = info[.originalImage] as? UIImage
-            self.dismiss(animated: true)
-            saveButton.isEnabled = true
-       
+        imageView.image = info[.originalImage] as? UIImage
+        self.dismiss(animated: true)
+        self.toogleUploadButton()
+        
     }
+    
+    
 
     @IBAction func uploadButtonClicked(_ sender: Any) {
         
@@ -98,7 +98,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                                 
                                                 let alert = UIAlertController(title: "Successfully", message: "Transaction successfull", preferredStyle: .alert)
                                                 let okButton = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
-                                                    self.imageView.image = UIImage(named: "istanbul")
+                                                    self.imageView.image = UIImage(named: "choosePhoto")
                                                     self.commentTextField.text = ""
                                                     self.tabBarController?.selectedIndex = 0
                                                 }
@@ -125,6 +125,16 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let okButton = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okButton)
         self.present(alert, animated: true)
+    }
+    
+    func toogleUploadButton() {
+        if
+            self.imageView.image != nil && self.commentTextField.text?.isEmpty != true {
+            self.saveButton.isEnabled = true
+        } else {
+            self.saveButton.isEnabled = false
+        }
+            
     }
     
 }

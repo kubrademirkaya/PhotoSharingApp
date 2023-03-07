@@ -39,24 +39,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func signupButtonClicked(_ sender: Any) {
-        
-        if emailTextField.text != "" && passwordTextField.text != "" {
-            
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
-                
-                (authdataresult, error) in
-                if error != nil {
-                    self.errorMessage(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error, try again")
-                } else {
-                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
-                }
-            }
-            
-        } else {
-            errorMessage(titleInput: "Error", messageInput: "enter username and password")
-        }
-    }
     
     func errorMessage (titleInput: String, messageInput: String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)

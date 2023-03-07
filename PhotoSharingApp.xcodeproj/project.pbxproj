@@ -19,6 +19,10 @@
 		E073B1F52944A7A400FF790B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E073B1F32944A7A400FF790B /* Main.storyboard */; };
 		E073B1F72944A7A400FF790B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E073B1F62944A7A400FF790B /* Assets.xcassets */; };
 		E073B1FA2944A7A400FF790B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E073B1F82944A7A400FF790B /* LaunchScreen.storyboard */; };
+		E0B9335A29AA42A000C6108B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B9335929AA42A000C6108B /* ProfileViewController.swift */; };
+		E0B9335C29AA42D400C6108B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B9335B29AA42D400C6108B /* ProfileCell.swift */; };
+		E0B9336429B0155400C6108B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B9336329B0155400C6108B /* SignUpViewController.swift */; };
+		E0B9336629B75DD300C6108B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B9336529B75DD300C6108B /* ForgotPasswordViewController.swift */; };
 		E0C779E429546B3F00EB114F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C779E329546B3F00EB114F /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,10 @@
 		E073B1F62944A7A400FF790B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E073B1F92944A7A400FF790B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E073B1FB2944A7A400FF790B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0B9335929AA42A000C6108B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E0B9335B29AA42D400C6108B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		E0B9336329B0155400C6108B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E0B9336529B75DD300C6108B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E0C779E329546B3F00EB114F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,21 +100,49 @@
 		E073B1EC2944A7A400FF790B /* PhotoSharingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E0B9336829B77DA800C6108B /* Views */,
+				E0B9336929B77DB000C6108B /* Controllers */,
+				E0B9336729B77D9900C6108B /* Supporting Files */,
+			);
+			path = PhotoSharingApp;
+			sourceTree = "<group>";
+		};
+		E0B9336729B77D9900C6108B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				E073B1ED2944A7A400FF790B /* AppDelegate.swift */,
 				E073B1EF2944A7A400FF790B /* SceneDelegate.swift */,
-				E073B1F12944A7A400FF790B /* ViewController.swift */,
-				E064479F29460BF1001226B1 /* FeedViewController.swift */,
-				E04606D42948A2130035F56E /* FeedCell.swift */,
-				E06447A129460C08001226B1 /* UploadViewController.swift */,
-				E06447A329460C17001226B1 /* SettingsViewController.swift */,
-				E0C779E329546B3F00EB114F /* Post.swift */,
-				E073B1F32944A7A400FF790B /* Main.storyboard */,
 				E073B1F62944A7A400FF790B /* Assets.xcassets */,
 				E073B1F82944A7A400FF790B /* LaunchScreen.storyboard */,
 				E073B1FB2944A7A400FF790B /* Info.plist */,
 				E01A2AB92945F84E00714147 /* GoogleService-Info.plist */,
 			);
-			path = PhotoSharingApp;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0B9336829B77DA800C6108B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E073B1F32944A7A400FF790B /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0B9336929B77DB000C6108B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0B9336329B0155400C6108B /* SignUpViewController.swift */,
+				E0B9336529B75DD300C6108B /* ForgotPasswordViewController.swift */,
+				E073B1F12944A7A400FF790B /* ViewController.swift */,
+				E064479F29460BF1001226B1 /* FeedViewController.swift */,
+				E04606D42948A2130035F56E /* FeedCell.swift */,
+				E06447A129460C08001226B1 /* UploadViewController.swift */,
+				E0B9335929AA42A000C6108B /* ProfileViewController.swift */,
+				E0B9335B29AA42D400C6108B /* ProfileCell.swift */,
+				E06447A329460C17001226B1 /* SettingsViewController.swift */,
+				E0C779E329546B3F00EB114F /* Post.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +267,12 @@
 				E0C779E429546B3F00EB114F /* Post.swift in Sources */,
 				E073B1EE2944A7A400FF790B /* AppDelegate.swift in Sources */,
 				E06447A029460BF1001226B1 /* FeedViewController.swift in Sources */,
+				E0B9336429B0155400C6108B /* SignUpViewController.swift in Sources */,
+				E0B9335A29AA42A000C6108B /* ProfileViewController.swift in Sources */,
 				E073B1F02944A7A400FF790B /* SceneDelegate.swift in Sources */,
 				E06447A429460C17001226B1 /* SettingsViewController.swift in Sources */,
+				E0B9336629B75DD300C6108B /* ForgotPasswordViewController.swift in Sources */,
+				E0B9335C29AA42D400C6108B /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +422,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXVQKD88QN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoSharingApp/Info.plist;
+				INFOPLIST_FILE = "PhotoSharingApp/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -411,7 +451,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXVQKD88QN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PhotoSharingApp/Info.plist;
+				INFOPLIST_FILE = "PhotoSharingApp/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
