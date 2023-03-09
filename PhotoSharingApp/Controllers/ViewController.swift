@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var iconClick = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,6 +41,16 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func secureButtonClicked(_ sender: Any) {
+        
+        if iconClick {
+                passwordTextField.isSecureTextEntry = false
+            } else {
+                passwordTextField.isSecureTextEntry = true
+            }
+            iconClick = !iconClick
+        
+    }
     
     func errorMessage (titleInput: String, messageInput: String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)

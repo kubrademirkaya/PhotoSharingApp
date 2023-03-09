@@ -9,17 +9,21 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 
+
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var iconClick = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
+    
     
     @IBAction func signUpButtonClicked(_ sender: Any) {
         
@@ -40,6 +44,17 @@ class SignUpViewController: UIViewController {
         }
         
     }
+    @IBAction func secureButtonClicked(_ sender: Any) {
+        
+        if iconClick {
+                passwordTextField.isSecureTextEntry = false
+            } else {
+                passwordTextField.isSecureTextEntry = true
+            }
+            iconClick = !iconClick
+    }
+    
+    
     
     func errorMessage (titleInput: String, messageInput: String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
